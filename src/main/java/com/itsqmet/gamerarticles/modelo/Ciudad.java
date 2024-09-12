@@ -1,6 +1,7 @@
 package com.itsqmet.gamerarticles.modelo;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import lombok.*;
 
@@ -13,6 +14,10 @@ public class Ciudad {
     private int codigo;
 
     @Column(length = 25)
+    @NotNull
+    @Size(min=5, max=25)
+    @Pattern(regexp = "^[A-Z][a-z]+$", 
+    message = "El nombre de la ciudad debe comenzar con una letra mayúscula y no contener números ni caracteres especiales.")
     private String nombre;
     
     
